@@ -1,0 +1,107 @@
+{% extends "main.html"%}
+
+
+{% block content %}
+{% load i18n %}
+
+<div class="ProductPage">
+    <!-- Form Section -->
+    <div class="form-section">
+        <h2 class="form-title">{% trans "Customer Submission Form" %}</h2>
+
+        <form id="customerForm" method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" class="form-input name-input" placeholder="{% trans 'Full Name' %}" required name="full_name" >
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-input phone-input" placeholder="{% trans 'Phone Number' %}" required name="phone_number" pattern="^0[5-7][0-9]{8}$" maxlength="10">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <select class="form-select wilaya-select" required title="Select Wilaya" name="wilaya">
+                        <option value="">{% trans 'Select Wilaya' %}</option>
+                        {% for key, val in data.items %}
+                        <option value="{{ val.wilaya }}" data-home="{{val.home}}" data-office="{{val.office}}">
+                            {{ val.wilaya }} - {{ val.code }}
+                            {{ key }}-{{ val.wilaya }}
+                        </option>
+                        {% endfor %}
+                        <!-- Add more wilayas as needed -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-select delivery-select" required title="Select Delivery Type" disabled ="{{ data }}" name="delivery_type">
+                        <option value="">{% trans 'Delivery Type' %}</option>
+                        <option value="home">{% trans 'Home Delivery' %} </option>
+                        <option value="office">{% trans 'Office Delivery' %}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <textarea class="form-textarea" placeholder=" {% trans 'Municipality (Home address)' %} " rows="3" name="municipality"></textarea>
+            </div>
+
+            <div class="quantity-input">
+                <label class="quantity-label">{% trans 'Quantity' %}:</label>
+                <div class="quantity-control">
+                    <button type="button" class="quantity-btn" id="decreaseBtn">−</button>
+                    <input type="number" class="quantity-number" id="quantityInput" title="Quantity" value="1" min="1" max="99" name="quantity" required>
+                    <button type="button" class="quantity-btn" id="increaseBtn">+</button>
+                </div>
+            </div>
+
+            <div class="price-section">
+                <div class="price-row">
+                    <span class="price-label" >{% trans 'Unit Price' %}:</span>
+                    <span class="price-value" id="unitPrice" data-unit-price="{{ product.price }}">{{ product.price }}</span>
+                    <input class="unit-price-input" type="text" name="unit_price" value="{{ product.price }}" hidden>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">{% trans 'Delivery Tax' %}:</span>
+                    <span class="price-value" id="deliveryTax">0DA</span>
+                    <input class="delivery-tax-input" type="text" name="delivery_tax" value="0" hidden>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">{% trans 'Total Price' %}:</span>
+                    <span class="price-value total-price" id="totalPrice">0DA</span>
+                    <input class="total-price-input" type="text" name="total_price" value="0" hidden>
+                </div>
+            </div>
+
+            <button type="submit" class="buy-button" data-processing-text = "{% trans 'Processing ...' %}"
+             data-ordered-text="{% trans 'Order Placed! ✓' %}">
+                {% trans 'Buy Now' %}
+            </button>
+        </form>
+    </div>
+
+    <!-- Product Section -->
+    <div class="product-section">
+        <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+            <div class="belt-buckle"></div>
+        </img>
+        <div class="product-info">
+            <h3 class="product-title">{{ product.name }}</h3>
+            <p class="product-description">
+                {{ product.description }}
+            </p>
+            <div class="product-price">{{ product.price }}DA</div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% load static %}
+
+{% block scripts %}
+    <script defer src="{% static 'scripts/product.js' %}"></script>
+{% endblock %}
+

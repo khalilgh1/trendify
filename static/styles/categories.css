@@ -1,0 +1,31 @@
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px 0;
+    justify-content: center;
+    align-items: center;
+}
+.categories h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.category-link {
+    background: #f5f5f5;
+    color: #333;
+    padding: 8px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    margin: 0 1rem;
+}
+
+.category-link:hover, .category-link:focus {
+    background: #333;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}

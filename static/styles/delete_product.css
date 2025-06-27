@@ -1,0 +1,47 @@
+/* Center the form on the page */
+.delete-product-form {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 2rem 2.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.delete-product-form p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.delete-product-form a {
+    display: inline-block;
+    margin-right: 1.5rem;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.delete-product-form a:hover {
+    color: #217dbb;
+    text-decoration: underline;
+}
+
+.delete-product-form input[type="submit"] {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.delete-product-form input[type="submit"]:hover {
+    background: #c0392b;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}

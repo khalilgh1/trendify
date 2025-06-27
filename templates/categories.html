@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+
+<body>
+    <div class="homePage">
+        <div class="categories">
+            <h2 class="section-title">{% trans  "Browse Categories" %}</h2>
+            {% for category in categories %}
+            <a href="{% url 'categories' %}?q={{ category.name }}" class="category-link">
+                {{ category.name }}
+            </a>
+            {% endfor %}
+        </div>
+
+        <section class="featured-section" id="home">
+            <div class="products-grid">
+                {% for product in products %}
+                <div class="product-card" data-product="green-scarf">
+                    <img class="product-image green-scarf" src="{{ product.image.url }}" alt="{{product.name}}"></img>
+                    <div class="product-info">
+                        <h3 class="product-name">{{product.name}}</h3>
+                        <p class="product-price">{{product.price}}DA</p>
+                    </div>
+                    <button class="add-to-cart" data-product-id="{{product.id}}">{% trans  "Add to Cart" %}</button>
+                </div>
+                {% endfor %}
+
+                
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
+{% endblock content %}
+
+{% block scripts %}
+    <script defer src="{% static 'scripts/home.js' %}"></script>
+{% endblock scripts %}

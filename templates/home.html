@@ -1,0 +1,49 @@
+{% extends "main.html" %}
+{% load i18n %}
+{% load static %}
+
+
+{% block content %}
+
+<body>
+    <div class="homePage">
+            <form class="search-container" action="" method="get">
+                <span class="search-icon"><i class="bi bi-search"></i></span>
+                <input type="text" class="search-input" placeholder="{% trans 'Search for products, brands, and more...' %}" name="q">
+                <input type="submit" value="{% trans 'search' %}" class="search-button">
+
+            </form>
+
+        <section class="featured-section" id="home">
+            <h2 class="section-title">{% trans  "Featured Products" %} </h2>
+            {% if request.user.is_authenticated and request.user.is_superuser %}
+            <button title="add-product" class="add-product">{% trans  "Add Product" %} </button>
+            {% endif %}
+            <div class="products-grid">
+                {% for product in products %}
+                <div class="product-card" data-product="green-scarf">
+                    {% if request.user.is_authenticated and request.user.is_superuser %}
+                        <i class="bi bi-pencil-square edit-product" data-product-id="{{product.id}}"></i>
+                        <i class="bi bi-trash delete-product" data-product-id="{{product.id}}"></i>
+                    {% endif %}
+                    <img class="product-image green-scarf" src="{{ product.image.url }}" alt="{{product.name}}"></img>
+                    <div class="product-info">
+                        <h3 class="product-name">{{product.name}}</h3>
+                        <p class="product-price">{{product.price}}DA</p>
+                    </div>
+                    <button class="add-to-cart" data-product-id="{{product.id}}">{% trans  "Add to Cart" %}</button>
+                </div>
+                {% endfor %}
+
+                
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
+{% endblock content %}
+
+{% block scripts %}
+    <script defer src="{% static 'scripts/home.js' %}"></script>
+{% endblock scripts %}

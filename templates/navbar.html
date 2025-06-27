@@ -1,0 +1,62 @@
+{% load i18n %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="logo">Trendify</a>
+
+        <ul class="nav-links">
+            <li><a href="/">{% trans  "Home" %} </a></li>
+            <li><a href="/categories/">{% trans  "Categories" %}</a></li>
+            <li><a href="/about/">{% trans  "About" %}</a></li>
+        </ul>
+
+        <form method="post" action="{% url 'set_language' %}" class="language-selector" id="languageSelector">
+            {% csrf_token %}
+            <input type="hidden" name="language" class="language-input">
+            <input type="hidden" name="next" value="{{ request.path }}" class="next-input">
+            <div class="selected-language">
+                <div class="flag {% if LANGUAGE_CODE == 'en' %}uk{% elif LANGUAGE_CODE == 'fr' %}france{% elif LANGUAGE_CODE == 'ar' %}algeria{% endif %}" id="selectedFlag">
+                    <span class="fi {% if LANGUAGE_CODE == 'en' %}fi-gb{% elif LANGUAGE_CODE == 'fr' %}fi-fr{% elif LANGUAGE_CODE == 'ar' %}fi-dz{% endif %} selectedFlag-icon"></span>
+                </div>
+                <span class="language-text" id="selectedLanguage">
+                    {% if LANGUAGE_CODE == 'en' %}
+                        English
+                    {% elif LANGUAGE_CODE == 'fr' %}
+                        Français
+                    {% elif LANGUAGE_CODE == 'ar' %}
+                        العربية
+                    {% endif %}
+                </span>
+            </div>
+
+            <span class="dropdown-arrow">▼</span>
+
+            <div class="language-dropdown" id="languageDropdown">
+                <div class="language-option {% if LANGUAGE_CODE == 'en' %} selected {% endif %}" data-lang="en" data-flag="uk">
+                    <div class="flag"><span class="fi fi-gb"></span></div>
+                    <span class="language-text">English</span>
+                </div>
+                <div class="language-option {% if LANGUAGE_CODE == 'fr' %} selected {% endif %}" data-lang="fr" data-flag="france">
+                    <div class="flag"><span class="fi fi-fr"></span></div>
+                    <span class="language-text">Français</span>
+                </div>
+                <div class="language-option {% if LANGUAGE_CODE == 'ar' %} selected {% endif %}" data-lang="ar" data-flag="algeria">
+                    <div class="flag"><span class="fi fi-dz"></span></div>
+                    <span class="language-text">العربية</span>
+                </div>
+            </div>
+        </form>
+        <div class="hamburger-icon">
+            <i class="bi bi-list"></i>
+        </div>
+    </div>
+</nav>
+
+{% load static %}
+
+
+{% block scripts %}
+    <script defer src="{% static 'scripts/navbar.js' %}"></script>
+{% endblock %}
