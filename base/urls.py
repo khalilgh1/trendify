@@ -12,4 +12,3 @@ urlpatterns = [
     path("delete-product/<str:pk>", views.delete_product, name="delete_product"),
     
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
