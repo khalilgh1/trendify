@@ -8,14 +8,17 @@ const unitPriceElement = document.getElementById('unitPrice');
 const deliveryTaxElement = document.getElementById('deliveryTax');
 const wilayaSelect = document.querySelector('.wilaya-select');
 const deliverySelect = document.querySelector('.delivery-select');
-wilaya = null;
 
+const data = JSON.parse(document.getElementById("data-json").textContent);
+console.log(data);
+
+wilaya = null;
 DELIVERY_TAX = 0;
 const UNIT_PRICE = unitPriceElement.dataset.unitPrice? parseInt(unitPriceElement.dataset.unitPrice) : 0;
 
 //ensure delivery select is disabled initially
 wilayaSelect.addEventListener('change', function () {
-    const selectedWilaya = this.value;
+    const selectedWilaya = this.value; 
     if (selectedWilaya) {
         wilaya = selectedWilaya;
         console.log(`Selected Wilaya: ${wilaya}`);
@@ -23,6 +26,18 @@ wilayaSelect.addEventListener('change', function () {
         // reset delivery select options
         deliverySelect.value = '';
         DELIVERY_TAX = 0;
+        //disable office option for wilayas that do not have office delivery
+        Object.values(data).forEach(function (val) {
+            if (val.wilaya === wilaya) {
+                const officeDelivery = val.office;
+                if (officeDelivery && !isNaN(officeDelivery)) {
+                    deliverySelect.querySelector('.office-option').disabled = false;
+                }
+                else {
+                    deliverySelect.querySelector('.office-option').disabled = true;
+                }
+            }
+        });
 
     }
     else{

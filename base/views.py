@@ -151,8 +151,8 @@ def product(request, pk):
         Delivery Tax: {delivery_tax}DA\n
         Total Price: {total_price}DA
         """
-        email_from = "khalil.ghanem.dev@gmail.com"
-        recipient_list = ["khalil.ghanem.dev@gmail.com"]
+        email_from = "trendifycah111@gmail.com"
+        recipient_list = ["trendifycah111@gmail.com"]
         try:
             send_mail(subject, message, email_from, recipient_list)
             print("Email sent successfully")
