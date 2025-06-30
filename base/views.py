@@ -5,6 +5,7 @@ from .models import Product, Category
 from .forms import productForm
 from django.conf import settings
 from django.core.mail import send_mail
+from django.http import JsonResponse
 # Create your views here.
 def home(request):
     current_lang = get_language() 

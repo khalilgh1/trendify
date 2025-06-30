@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Product(models.Model):
@@ -10,7 +11,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.IntegerField()
-    image = models.ImageField(default='default.jpg', blank=True)
+    image = CloudinaryField('image', blank=True, null=True)
     language = models.CharField(choices=LANGUAGE_CHOICES, max_length=2, default='en')
     category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='products', null=True, blank=True)
 

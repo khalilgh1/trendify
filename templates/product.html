@@ -85,7 +85,9 @@
 
     <!-- Product Section -->
     <div class="product-section">
-        <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+        <img class="product-image"
+        src="{% if product.image %}{{ product.image.url }}{% else %}https://res.cloudinary.com/djnehxal6/image/upload/v1751277079/default_torrv6.jpg{% endif %}"
+         alt="{{ product.name }}">
             <div class="belt-buckle"></div>
         </img>
         <div class="product-info">
