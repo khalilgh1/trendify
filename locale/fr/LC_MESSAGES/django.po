@@ -50,8 +50,6 @@ msgid "Follow Us"
 msgstr "Suivez-nous"
 
 #: .\templates\categories.html:11
-#, fuzzy
-#| msgid "Categories"
 msgid "Browse Categories"
 msgstr "Parcourir les catégories"
 

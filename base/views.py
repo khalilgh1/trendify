@@ -5,10 +5,12 @@ from .models import Product, Category
 from .forms import productForm
 from django.conf import settings
 from django.core.mail import send_mail
-from django.http import JsonResponse
+from django.http import HttpResponse
+
 # Create your views here.
 def home(request):
     current_lang = get_language() 
+    print(f"Current language: {current_lang}")
     q = request.GET.get('q') if request.GET.get('q') else ''
     
     products = Product.objects.filter(
@@ -198,3 +200,11 @@ def delete_product(request, pk):
         return redirect('home')
     context = { 'product': product }
     return render(request, "delete_product.html", context)
+
+#for fast render application loading
+def fast_render(request):
+    return HttpResponse("OK")
+
+
+
+
