@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 18:09+0100\n"
+"POT-Creation-Date: 2025-07-02 13:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Arabic <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "Suivez-nous"
 msgid "Browse Categories"
 msgstr "Parcourir les catégories"
 
-#: .\templates\categories.html:28 .\templates\home.html:34
+#: .\templates\categories.html:31 .\templates\home.html:36
 msgid "Add to Cart"
 msgstr "Ajouter au panier"
 
@@ -85,72 +85,87 @@ msgstr "Catégories"
 msgid "About"
 msgstr "À propos"
 
-#: .\templates\product.html:10
+#: .\templates\product.html:12
 msgid "Customer Submission Form"
 msgstr "Formulaire de commande client"
 
-#: .\templates\product.html:15
+#: .\templates\product.html:18
 msgid "Full Name"
 msgstr "Nom complet"
 
-#: .\templates\product.html:18
+#: .\templates\product.html:22
 msgid "Phone Number"
 msgstr "Numéro de téléphone"
 
-#: .\templates\product.html:25
+#: .\templates\product.html:30
 msgid "Select Wilaya"
 msgstr "Sélectionner une wilaya"
 
-#: .\templates\product.html:37
+#: .\templates\product.html:43
 msgid "Delivery Type"
 msgstr "Type de livraison"
 
-#: .\templates\product.html:38
+#: .\templates\product.html:44
 msgid "Home Delivery"
 msgstr "Livraison à domicile"
 
-#: .\templates\product.html:39
+#: .\templates\product.html:46
 msgid "Office Delivery"
 msgstr "Livraison en point relais"
 
-#: .\templates\product.html:49
+#: .\templates\product.html:52
+msgid "Municipality (Home address)"
+msgstr "Municipalité (Adresse de domicile)"
+
+#: .\templates\product.html:59
+#, fuzzy
+#| msgid "Select Wilaya"
+msgid "Select"
+msgstr "Sélectionner un(e)"
+
+#: .\templates\product.html:70
 msgid "Quantity"
 msgstr "Quantité"
 
-#: .\templates\product.html:59
+#: .\templates\product.html:81
 msgid "Unit Price"
 msgstr "Prix unitaire"
 
-#: .\templates\product.html:63
+#: .\templates\product.html:87
 msgid "Delivery Tax"
 msgstr "Frais de livraison"
 
-#: .\templates\product.html:67
+#: .\templates\product.html:92
 msgid "Total Price"
 msgstr "Prix total"
 
-#: .\templates\product.html:72
+#: .\templates\product.html:98
 msgid "Processing ..."
 msgstr "Traitement en cours ..."
 
-#: .\templates\product.html:73
+#: .\templates\product.html:99
 msgid "Order Placed! ✓"
 msgstr "Commande passée ! ✓"
 
-#: .\templates\product.html:74
+#: .\templates\product.html:100
 msgid "Buy Now"
 msgstr "Acheter maintenant"
 
-#: .\trendify\settings.py:120
+#: .\trendify\settings.py:126
 msgid "English"
 msgstr ""
 
-#: .\trendify\settings.py:121
+#: .\trendify\settings.py:127
 msgid "French"
 msgstr ""
 
-#: .\trendify\settings.py:122
+#: .\trendify\settings.py:128
 msgid "Arabic"
+msgstr ""
+
+#: .\venv\Lib\site-packages\cloudinary\forms.py:55
+#: .\venv\Lib\site-packages\cloudinary\forms.py:124
+msgid "No file selected!"
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16

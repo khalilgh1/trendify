@@ -109,9 +109,11 @@ def product(request, pk):
 }
 
     product = Product.objects.get(pk=pk)
+    variations = product.variations.all()  # related_name='variations'
     context = {
         'pk': pk,
         'product': product,
+        'variations': variations,
         'data': data,
     }
     if request.method == 'POST':
@@ -154,8 +156,8 @@ def product(request, pk):
         Delivery Tax: {delivery_tax}DA\n
         Total Price: {total_price}DA
         """
-        email_from = "trendifycah111@gmail.com"
-        recipient_list = ["trendifycah111@gmail.com"]
+        email_from = "khalil.ghanem.dev@gmail.com"
+        recipient_list = ["khalil.ghanem.dev@gmail.com"]
         try:
             send_mail(subject, message, email_from, recipient_list)
             print("Email sent successfully")

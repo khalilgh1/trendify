@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-26 18:09+0100\n"
+"POT-Creation-Date: 2025-07-02 13:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Arabic <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgstr "تابعنا"
 msgid "Browse Categories"
 msgstr "تصفح التصنيفات"
 
-#: .\templates\categories.html:28 .\templates\home.html:34
+#: .\templates\categories.html:31 .\templates\home.html:36
 msgid "Add to Cart"
 msgstr "أضف إلى السلة"
 
@@ -83,72 +83,85 @@ msgstr "التصنيفات"
 msgid "About"
 msgstr "حول الموقع"
 
-#: .\templates\product.html:10
+#: .\templates\product.html:12
 msgid "Customer Submission Form"
 msgstr "استمارة الزبون"
 
-#: .\templates\product.html:15
+#: .\templates\product.html:18
 msgid "Full Name"
 msgstr "الاسم الكامل"
 
-#: .\templates\product.html:18
+#: .\templates\product.html:22
 msgid "Phone Number"
 msgstr "رقم الهاتف"
 
-#: .\templates\product.html:25
+#: .\templates\product.html:30
 msgid "Select Wilaya"
 msgstr "اختر الولاية"
 
-#: .\templates\product.html:37
+#: .\templates\product.html:43
 msgid "Delivery Type"
 msgstr "نوع التوصيل"
 
-#: .\templates\product.html:38
+#: .\templates\product.html:44
 msgid "Home Delivery"
 msgstr "توصيل إلى المنزل"
 
-#: .\templates\product.html:39
+#: .\templates\product.html:46
 msgid "Office Delivery"
 msgstr "توصيل إلى المكتب"
 
-#: .\templates\product.html:49
+#: .\templates\product.html:52
+msgid "Municipality (Home address)"
+msgstr "بلدية (عنوان المنزل)"
+
+#: .\templates\product.html:59
+msgid "Select"
+msgstr "اختر"
+
+#: .\templates\product.html:70
 msgid "Quantity"
 msgstr "الكمية"
 
-#: .\templates\product.html:59
+#: .\templates\product.html:81
 msgid "Unit Price"
 msgstr "سعر الوحدة"
 
-#: .\templates\product.html:63
+#: .\templates\product.html:87
 msgid "Delivery Tax"
 msgstr "رسوم التوصيل"
 
-#: .\templates\product.html:67
+#: .\templates\product.html:92
 msgid "Total Price"
 msgstr "السعر الإجمالي"
 
-#: .\templates\product.html:72
+#: .\templates\product.html:98
 msgid "Processing ..."
 msgstr "جاري المعالجة ..."
 
-#: .\templates\product.html:73
+#: .\templates\product.html:99
 msgid "Order Placed! ✓"
 msgstr "تم ايداع الطلب! ✓"
 
-#: .\templates\product.html:74
+#: .\templates\product.html:100
 msgid "Buy Now"
 msgstr "اشترِ الآن"
 
-#: .\trendify\settings.py:120
+#: .\trendify\settings.py:126
 msgid "English"
 msgstr ""
 
-#: .\trendify\settings.py:121
+#: .\trendify\settings.py:127
 msgid "French"
 msgstr ""
 
-#: .\trendify\settings.py:122
+#: .\trendify\settings.py:128
 msgid "Arabic"
+msgstr ""
+
+#: .\venv\Lib\site-packages\cloudinary\forms.py:55
+#: .\venv\Lib\site-packages\cloudinary\forms.py:124
+msgid "No file selected!"
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
