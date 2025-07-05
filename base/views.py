@@ -110,6 +110,7 @@ def product(request, pk):
 
     product = Product.objects.get(pk=pk)
     variations = product.variations.all()  # related_name='variations'
+    variation_name = variations[0].type if variations else None
     context = {
         'pk': pk,
         'product': product,
@@ -119,19 +120,6 @@ def product(request, pk):
     if request.method == 'POST':
         print("POST request received")
         #extract the data from the form
-        """
-        the post request example:
-        <QueryDict: {'csrfmiddlewaretoken': ['0ITsZAyqeO9o9daIC3XokfacxVNPWUxdh4SMlz7erxksDI6meZsHdJs1ShFQqUos'],
-        'full_name': ['aa'],
-        'phone_number': ['aa'],
-        'wilaya': ['Oum El Bouaghi'],
-        'delivery_type': ['home'],
-        'municipality': ['aaa'],
-        'quantity': ['2'],
-        'unit_price': ['5000'],
-        'delivery_tax': ['700'],
-        'total_price': ['10700']}>
-        """
         full_name = request.POST.get('full_name')
         phone_number = request.POST.get('phone_number')
         wilaya = request.POST.get('wilaya')
@@ -141,6 +129,7 @@ def product(request, pk):
         unit_price = request.POST.get('unit_price')
         delivery_tax = request.POST.get('delivery_tax')
         total_price = request.POST.get('total_price')
+        variation = request.POST.get('variation-select')
 
         #now we send the email data to the admin (client)
         subject = f"New Order from {full_name}"
@@ -156,6 +145,8 @@ def product(request, pk):
         Delivery Tax: {delivery_tax}DA\n
         Total Price: {total_price}DA
         """
+        if variation:
+            message += f"\n{variation_name}: {variation}\n"
         email_from = "khalil.ghanem.dev@gmail.com"
         recipient_list = ["khalil.ghanem.dev@gmail.com"]
         try:
@@ -206,6 +197,26 @@ def delete_product(request, pk):
 #for fast render application loading
 def fast_render(request):
     return HttpResponse("OK")
+
+def test_email(request):
+    """
+    Simple view to test email functionality
+    """
+    from django.core.mail import send_mail
+    from django.conf import settings
+    from django.http import JsonResponse
+    
+    try:
+        send_mail(
+            subject='Test Email',
+            message='This is a test email from Django.',
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[settings.EMAIL_HOST_USER],
+            fail_silently=False,
+        )
+        return JsonResponse({'status': 'success', 'message': 'Email sent successfully!'})
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)})
 
 
 

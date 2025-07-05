@@ -8,7 +8,8 @@
 <body>
     <div class="homePage">
         <div class="categories">
-            <h2 class="section-title">{% trans  "Browse Categories" %}</h2>
+            <img src="{% static 'images/shop.svg' %}" alt="Categories Icon" class="categories-icon" />
+            <h2 class="section-title">{% trans "Browse Categories" %}</h2>
             {% for category in categories %}
             <a href="{% url 'categories' %}?q={{ category.name }}" class="category-link">
                 {{ category.name }}
@@ -28,19 +29,20 @@
                         <h3 class="product-name">{{product.name}}</h3>
                         <p class="product-price">{{product.price}}DA</p>
                     </div>
-                    <button class="add-to-cart" data-product-id="{{product.id}}">{% trans  "Add to Cart" %}</button>
+                    <button class="add-to-cart" data-product-id="{{product.id}}">{% trans "Add to Cart" %}</button>
                 </div>
                 {% endfor %}
 
-                
+
             </div>
         </section>
     </div>
 
 </body>
+
 </html>
 {% endblock content %}
 
 {% block scripts %}
-    <script defer src="{% static 'scripts/home.js' %}"></script>
+<script defer src="{% static 'scripts/home.js' %}"></script>
 {% endblock scripts %}

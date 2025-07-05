@@ -11,5 +11,6 @@ urlpatterns = [
     path("edit-product/<str:pk>", views.edit_product, name="edit_product"),
     path("delete-product/<str:pk>", views.delete_product, name="delete_product"),
     path("fast-render/", views.fast_render, name="fast_render"),
+    path("test-email/", views.test_email, name="test_email"),
     
 ]
