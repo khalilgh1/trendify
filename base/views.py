@@ -147,8 +147,8 @@ def product(request, pk):
         """
         if variation:
             message += f"\n{variation_name}: {variation}\n"
-        email_from = "khalil.ghanem.dev@gmail.com"
-        recipient_list = ["khalil.ghanem.dev@gmail.com"]
+        email_from = "trendifycah111@gmail.com"
+        recipient_list = ["trendifycah111@gmail.com"]
         try:
             send_mail(subject, message, email_from, recipient_list)
             print("Email sent successfully")
