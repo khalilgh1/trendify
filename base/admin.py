@@ -1,12 +1,15 @@
 from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin
 from .models import Product, Category, Variation
-# Register your models here.
-admin.site.register(Category)
 
-class VariationInline(admin.TabularInline):  # or admin.StackedInline for vertical layout
+@admin.register(Category)
+class CategoryAdmin(ImportExportModelAdmin):
+    pass
+
+class VariationInline(admin.TabularInline):
     model = Variation
     extra = 1
 
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(ImportExportModelAdmin):
     inlines = [VariationInline]
