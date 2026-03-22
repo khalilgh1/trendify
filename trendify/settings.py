@@ -7,6 +7,7 @@ Ready for PythonAnywhere deployment with proper .env loading, static files, and 
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+from urllib.parse import urlparse, parse_qsl
 from django.utils.translation import gettext_lazy as _
 
 # -------------------------------
@@ -91,10 +92,18 @@ TEMPLATES = [
 # -------------------------------
 # DATABASE
 # -------------------------------
+
+tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': tmpPostgres.path.replace('/', ''),
+        'USER': tmpPostgres.username,
+        'PASSWORD': tmpPostgres.password,
+        'HOST': tmpPostgres.hostname,
+        'PORT': 5432,
+        'OPTIONS': dict(parse_qsl(tmpPostgres.query)),
     }
 }
 

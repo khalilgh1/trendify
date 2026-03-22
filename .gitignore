@@ -10,4 +10,5 @@ venv/
 *.log
 *.sqlite3
 *.DS_Store
+base/__pycache__/*
 trendify/__pycache__/*
