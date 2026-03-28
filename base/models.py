@@ -26,6 +26,7 @@ class Category(models.Model):
     )
     name = models.CharField(max_length=100)
     language = models.CharField(choices=LANGUAGE_CHOICES, max_length=2, default='en')
+    icon = models.CharField(max_length=10, default='🏷️', help_text='Add an emoji icon for this category (e.g., 👗, 👞, 👜)')
 
     def __str__(self):
         return self.name

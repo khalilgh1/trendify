@@ -8,13 +8,17 @@
 <body>
     <div class="homePage">
         <div class="categories">
-            <img src="{% static 'images/categories.png' %}" alt="Categories Icon" class="categories-icon" />
+            <img src="https://res.cloudinary.com/djnehxal6/image/upload/v1774721064/shop_glovey.svg" alt="Shop Icon"
+                class="categories-icon">
             <h2 class="section-title">{% trans "Browse Categories" %}</h2>
-            {% for category in categories %}
-            <a href="{% url 'categories' %}?q={{ category.name }}" class="category-link">
-                {{ category.name }}
-            </a>
-            {% endfor %}
+            <div class="category-chips">
+                {% for category in categories %}
+                <a href="{% url 'categories' %}?q={{ category.name }}" class="category-chip">
+                    <span class="chip-icon">{{ category.icon }}</span>
+                    <span class="chip-text">{{ category.name }}</span>
+                </a>
+                {% endfor %}
+            </div>
         </div>
 
         <section class="featured-section" id="home">
