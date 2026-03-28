@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-02 13:58+0100\n"
+"POT-Creation-Date: 2026-03-28 17:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Arabic <LL@li.org>\n"
@@ -47,13 +47,17 @@ msgstr "متاح في جميع أنحاء الوطن"
 msgid "Follow Us"
 msgstr "تابعنا"
 
-#: .\templates\categories.html:11
+#: .\templates\categories.html:12
 msgid "Browse Categories"
 msgstr "تصفح التصنيفات"
 
-#: .\templates\categories.html:31 .\templates\home.html:36
+#: .\templates\categories.html:32 .\templates\home.html:36
 msgid "Add to Cart"
 msgstr "أضف إلى السلة"
+
+#: .\templates\categories.html:37
+msgid "No products found in this category"
+msgstr ""
 
 #: .\templates\home.html:12
 msgid "Search for products, brands, and more..."
@@ -70,6 +74,10 @@ msgstr "منتجات مميزة"
 #: .\templates\home.html:20
 msgid "Add Product"
 msgstr "إضافة منتج"
+
+#: .\templates\home.html:41
+msgid "No products available at the moment"
+msgstr ""
 
 #: .\templates\navbar.html:10
 msgid "Home"
@@ -147,15 +155,15 @@ msgstr "تم ايداع الطلب! ✓"
 msgid "Buy Now"
 msgstr "اشترِ الآن"
 
-#: .\trendify\settings.py:126
+#: .\trendify\settings.py:129
 msgid "English"
 msgstr ""
 
-#: .\trendify\settings.py:127
+#: .\trendify\settings.py:130
 msgid "French"
 msgstr ""
 
-#: .\trendify\settings.py:128
+#: .\trendify\settings.py:131
 msgid "Arabic"
 msgstr ""
 

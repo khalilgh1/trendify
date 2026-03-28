@@ -8,7 +8,7 @@
 <body>
     <div class="homePage">
         <div class="categories">
-            <img src="{% static 'images/shop.svg' %}" alt="Categories Icon" class="categories-icon" />
+            <img src="{% static 'images/categories.png' %}" alt="Categories Icon" class="categories-icon" />
             <h2 class="section-title">{% trans "Browse Categories" %}</h2>
             {% for category in categories %}
             <a href="{% url 'categories' %}?q={{ category.name }}" class="category-link">
