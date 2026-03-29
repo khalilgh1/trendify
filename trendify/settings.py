@@ -168,3 +168,11 @@ if "cloudinary" in INSTALLED_APPS:
 # DEFAULT PRIMARY KEY
 # -------------------------------
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# CSRF settings to fix incomatibility issues with Instagram browser
+# settings.py
+CSRF_COOKIE_SAMESITE = 'None'   # Required for cross-context requests
+CSRF_COOKIE_SECURE = True        # Required when SameSite=None
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True
